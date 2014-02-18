@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>RequireJS as a Plugin Engine: "Echo" Demonstration</title>
+  <meta name="author" content="Joseph Theriault">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <link href="lib/blueprint/blueprint/screen.css" rel="stylesheet" />
+</head>
+
+<body>
+  <script data-main="js/main" src="lib/requirejs/require.js"></script>
+  
+  <h1>RequireJS as a Plugin Engine: "Echo" Demonstration</h1>
+  <h2>Description</h2>
+  <div>
+  	<p>This demonstrates configuring RequireJS with different path values in order to swap implementations.</p>
+  	<p>In this demonstration, the user is asked for input, which is confirmed and repeated to the screen.</p>
+  	<p>The two implementations depend on three (implied) interfaces:
+  		<dl>
+  			<dt>Prompt</dt> 
+  			<dd>a class get text input in response to a question. It takes the question in 
+  				the constructor, displays it via a <em>display</em> method and it "returns" the response as a
+  				parameter to callback.</dd>
+  			<dt>Confirm</dt>
+  			<dd>a class get a boolean response to a question. It takes the question in 
+  				the constructor, displays it via a <em>display</em> method and it "returns" the response as a
+  				parameter to callback.</dd>
+  			<dt>Message</dt>
+  			<dd>a class get a display a message. It takes the message in 
+  				the constructor and displays it via a <em>display</em> method.</dd>
+  		</dl>
+  	</p>
+  	<p>In <a href="?mode=0">Obnoxious Mode</a>, the default, the RequireJS path for <em>output</em> is set to 
+  		<em>output/obnoxious</em> which is a folder containing the implementations of the three interfaces as
+  		wrappers to the browser window's native prompt, confirm and alert functions.
+  	</p>
+	<p>In <a href="?mode=1">Polite Mode</a>, the RequireJS path for <em>output</em> is set to <em>output/polite</em>
+		which is a folder containing a implementations for the interfaces which rely on HTML elements for I/O.
+	</p>
+  </div>
+</body>
+</html>
